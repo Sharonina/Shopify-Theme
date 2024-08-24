@@ -1,0 +1,152 @@
+<div class="product-slider">
+  <div class='left-container'>
+    <button class='left-btn' data-direction="prev">&lt</button>
+    <button class='right-btn' data-direction="next">&gt</button>
+    <div>
+      {% for collection in collections %}
+        <span class='dot {% if forloop.first %}dotactive{% endif %}'>.</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% for collection in collections %}
+    <div class="slider {% if forloop.first %}active{% endif %}">
+      {% for product in collection.products %}
+        <div class="product-slide">
+          <a href="{{ product.url }}">
+            {{ product }}
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            <p>{{ product.title }}</p>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .product-slider {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .left-container {
+    width: 30%;
+  }
+  .slider {
+    display: none;
+    transition: transform 0.5s ease;
+    overflow: scroll;
+    overflow-x: visible;
+    width: 70%;
+  }
+  .active {
+    display: flex;
+  }
+  .product-slide {
+    min-width: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  .product-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .dot {
+    font-size: 100px;
+    color: gray;
+  }
+  .dotactive {
+    color: green;
+  }
+</style>
+
+<script>
+  const sliders = document.querySelectorAll('.slider');
+  const dots = document.querySelectorAll('.dot');
+  let currentCollectionIndex = 0;
+
+  function showCollection(index) {
+    sliders.forEach((slider, i) => {
+      slider.classList.toggle('active', i === index);
+    });
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('dotactive', i === index);
+    });
+  }
+
+  document.querySelector('.left-btn').addEventListener('click', () => {
+    currentCollectionIndex = (currentCollectionIndex === 0) ? sliders.length - 1 : currentCollectionIndex - 1;
+    showCollection(currentCollectionIndex);
+  });
+
+  document.querySelector('.right-btn').addEventListener('click', () => {
+    currentCollectionIndex = (currentCollectionIndex === sliders.length - 1) ? 0 : currentCollectionIndex + 1;
+    showCollection(currentCollectionIndex);
+  });
+
+  const slider = document.querySelector('.slider.active');
+  let scrollInterval;
+
+  function startScrolling(direction) {
+    stopScrolling();
+    scrollInterval = setInterval(() => {
+      if (direction === 'left') {
+        slider.scrollLeft -= 2;
+        if (slider.scrollLeft <= 0) {
+          slider.scrollLeft = 0;
+        }
+      } else if (direction === 'right') {
+        slider.scrollLeft += 2;
+        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+          slider.scrollLeft = slider.scrollWidth - slider.clientWidth; // Stop at the end
+        }
+      }
+    }, 10); // Adjust the interval for scroll speed
+  }
+
+  function stopScrolling() {
+    clearInterval(scrollInterval);
+  }
+
+  // Add event listener for mousemove
+  slider.addEventListener('mousemove', function (e) {
+    const sliderWidth = slider.clientWidth;
+    const mouseX = e.clientX - slider.getBoundingClientRect().left;
+
+    if (mouseX < sliderWidth / 3) {
+      startScrolling('left');
+    } else if (mouseX > (2 * sliderWidth) / 3) {
+      startScrolling('right');
+    } else {
+      stopScrolling();
+    }
+  });
+
+  // Stop scrolling when the mouse leaves the slider area
+  slider.addEventListener('mouseleave', stopScrolling);
+</script>
+
+{% schema %}
+{
+  "name": "Product Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
