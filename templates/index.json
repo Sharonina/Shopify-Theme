@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "image_banner": {
@@ -6,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Las mejores raquetas para jugar <strong>Tennis</strong>",
+            "heading": "Las mejores raquetas para jugar <strong>Tennis<\/strong>",
             "heading_size": "h1"
           }
         },
@@ -14,7 +23,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "A cerca de nosotros",
-            "button_link_1": "shopify://collections/all",
+            "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -22,7 +31,10 @@
           }
         }
       },
-      "block_order": ["heading", "button"],
+      "block_order": [
+        "heading",
+        "button"
+      ],
       "custom_css": [
         ".banner__heading {width: 450px;}",
         ".banner__heading strong {color: #cbe346;}",
@@ -32,7 +44,7 @@
         "@media (max-width: 749px) {.banner__heading {width: 340px; }}"
       ],
       "settings": {
-        "image_2": "shopify://shop_images/group.png",
+        "image_2": "shopify:\/\/shop_images\/group.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "middle-left",
@@ -53,8 +65,11 @@
     },
     "image_banner_KnJkhx": {
       "type": "image-banner",
+      "custom_css": [
+        ".banner__media img {object-position: left center;}"
+      ],
       "settings": {
-        "image": "shopify://shop_images/action-athlete-ball-342361.jpg",
+        "image": "shopify:\/\/shop_images\/action-athlete-ball-342361.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
@@ -68,5 +83,9 @@
       }
     }
   },
-  "order": ["image_banner", "product_slider_hNfXfw", "image_banner_KnJkhx"]
+  "order": [
+    "image_banner",
+    "product_slider_hNfXfw",
+    "image_banner_KnJkhx"
+  ]
 }
