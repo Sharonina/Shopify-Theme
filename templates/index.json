@@ -28,7 +28,8 @@
         ".banner__heading strong {color: #cbe346;}",
         ".banner__buttons .button:before {border: 1px solid #fff; border-radius: 25px;}",
         ".banner__buttons .button:after {border-radius: 25px;}",
-        ".banner__buttons .button:hover {background: #ffffff10; border-radius: 25px;}"
+        ".banner__buttons .button:hover {background: #ffffff10; border-radius: 25px;}",
+        "@media (max-width: 749px) {.banner__heading {width: 340px;}}"
       ],
       "settings": {
         "image_2": "shopify://shop_images/group.png",
