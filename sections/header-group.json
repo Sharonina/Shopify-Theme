@@ -6,7 +6,8 @@
       "type": "header",
       "custom_css": [
         ".header-wrapper {background: transparent; position: absolute; top: 0;}",
-        ".header__icons {display: none;}"
+        ".header__icons {display: none;}",
+        ".header__heading-logo-wrapper img{width:37px; }"
       ],
       "settings": {
         "logo_position": "middle-left",
