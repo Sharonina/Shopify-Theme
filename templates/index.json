@@ -29,12 +29,12 @@
         ".banner__buttons .button:before {border: 1px solid #fff; border-radius: 25px;}",
         ".banner__buttons .button:after {border-radius: 25px;}",
         ".banner__buttons .button:hover {background: #ffffff10; border-radius: 25px;}",
-        "@media (max-width: 749px) {.banner__heading {width: 340px;}}"
+        "@media (max-width: 749px) {.banner__heading {width: 340px; }}"
       ],
       "settings": {
         "image_2": "shopify://shop_images/group.png",
         "image_overlay_opacity": 40,
-        "image_height": "medium",
+        "image_height": "large",
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
