@@ -10,6 +10,14 @@
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
 
+  .footer .footer__content-top {
+    padding: 0 0 0 40px;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .footer .footer__content-bottom .footer__content-bottom-wrapper{
+    display:none;
+  }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -26,9 +34,13 @@
   }
   .footer-navigation ul li{
    margin-right: 40px;
+    cursor:pointer;
   }
-  .footer-block--newsletter {
-        justify-content: left!important;
+.footer-navigation ul .active, .footer-navigation ul li:hover {
+font-weight: bold;
+}
+  .footer .footer-block--newsletter {
+        justify-content: left;
   }
   .list-social .list-social__item{
     border: 1px solid #fff;
@@ -49,12 +61,25 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+@media (max-width: 749px){
+  .footer .footer-block--newsletter {
+       align-items: flex-start; 
+  }
+  .footer .footer__content-top {
+        margin-bottom: 35px;
+  }
+}
+@media (max-width: 510px){
+  .footer-navigation ul {
+    flex-direction: column;
+}
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="footer-navigation">
     <ul>
-      <li>
+      <li class="active">
         <a>Inicio</a>
       </li>
       <li>
@@ -199,12 +224,7 @@
           </div>
         {%- endif -%}
 
-        <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
+        <div class="footer-block--newsletter">
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
