@@ -54,6 +54,12 @@
         "show_text_below": false
       }
     },
+    "custom_rich_text_hAeJt6": {
+      "type": "custom-rich-text",
+      "settings": {
+        "customRichText": "Featured text"
+      }
+    },
     "product_slider_hNfXfw": {
       "type": "product-slider",
       "settings": {
@@ -78,5 +84,10 @@
       }
     }
   },
-  "order": ["image_banner", "product_slider_hNfXfw", "image_banner_KnJkhx"]
+  "order": [
+    "image_banner",
+    "custom_rich_text_hAeJt6",
+    "product_slider_hNfXfw",
+    "image_banner_KnJkhx"
+  ]
 }

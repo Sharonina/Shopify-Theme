@@ -1,0 +1,130 @@
+<div class="custom-rich-text">
+  <div class="tennis-title-container">
+    <p>TENNIS</p>
+  </div>
+  <div class="raquetasAccesorios">
+    <p class="title">Raquetas.Accesorios.<br>Pelotas.</p>
+    <p class="subtitle">Conoce nuestras raquetas y aprende a jugar tenis como un profesional.</p>
+  </div>
+  <div class="btn-container">
+    <button>Historia</button>
+  </div>
+</div>
+
+<style>
+  .custom-rich-text{
+    width:100%;
+    height:392px;
+    background-color: #f3f4f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .custom-rich-text .tennis-title-container, .custom-rich-text .btn-container{
+    width:33%;
+  }
+  .custom-rich-text .tennis-title-container p{
+    height: 92px;
+    margin: 8px 0 100px 0;
+    font-family: HelveticaNeue;
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: 1.87px;
+    text-align: right;
+    color: #cbe346;
+  }
+  .custom-rich-text .raquetasAccesorios .title{
+    color: #1e2335;
+    letter-spacing:-0.06px;
+    margin: 0 0 15px 51px;
+    font-size:50px;
+    line-height: 1.14;
+  }
+.custom-rich-text .raquetasAccesorios .subtitle{
+  width: 393px;
+  height: 87px;
+  margin: 15px 50px 0 51px;
+  font-family: HelveticaNeue;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: 0.51px;
+  color: #787878;
+}
+.custom-rich-text .btn-container button{
+    font-family: HelveticaNeue;
+    color: #273048;
+    height: 45px;
+    margin: 107px 0 0 50px;
+    border-radius: 25px;
+    border: solid 1px #282e47;
+    padding: 0 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    letter-spacing: .1rem;
+}
+.custom-rich-text .btn-container button:hover{
+      background: #27304815;
+    border: solid 2px #282e47;
+}
+@media(max-width:990px){
+  .custom-rich-text{
+    flex-direction: column;
+    padding: 0 12%;
+  }
+  .custom-rich-text div{
+    width:100%!important;
+  }
+  .custom-rich-text .tennis-title-container p{
+        margin: 50px 0 0 0px;
+        text-align:left;
+    height: auto;
+  }
+  .custom-rich-text .raquetasAccesorios .title{
+        font-size: 40px;
+        margin: 0 0 15px 0;
+  }
+  .custom-rich-text .raquetasAccesorios .subtitle{
+    font-size: 16px;
+    margin: 15px 0 0 0;
+  }
+  .custom-rich-text .btn-container button{
+        margin: 0 0 50px 0;
+  }
+}
+  @media(min-width: 551px) and (max-width:700px){
+    .custom-rich-text{
+    padding: 0 20%;
+  }
+  }
+   @media(min-width: 701px) and (max-width:990px){
+    .custom-rich-text{
+    padding: 0 30%;
+  }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Rich Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Rich Text",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
