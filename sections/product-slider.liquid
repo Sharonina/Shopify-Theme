@@ -13,10 +13,9 @@
       {% for product in collection.products %}
         <div class="product-slide">
           <a href="{{ product.url }}">
-            {{ product }}
+            <div>{{ forloop.index }}</div>
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-            <p>{{ product.title }}</p>
-            <p>{{ product.price | money }}</p>
+            
           </a>
         </div>
       {% endfor %}
@@ -30,30 +29,52 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items:center;
   }
   .left-container {
-    width: 30%;
+    width: 530px;
+    margin-right:20px;
+        background-image: url(https://cdn.shopify.com/s/files/1/0589/9655/5894/files/ball.png?v=1724725857);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        height: 468px;
   }
   .slider {
     display: none;
     transition: transform 0.5s ease;
     overflow: scroll;
     overflow-x: visible;
-    width: 70%;
+        width: calc(100% - 550px);
   }
   .active {
     display: flex;
   }
   .product-slide {
-    min-width: 25%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 0;
   }
-  .product-slide img {
-    max-width: 100%;
+  .product-slide a{
+    position:relative;
+  }
+  .product-slide a div{
+        position: absolute;
+    top: 30px;
+    left: 30px;
+    text-decoration: none;
+    color: #fff;
+    background: #cbe346;
+    width: 38px;
+    height: 38px;
+    padding: 5px 10px 5px 15px;
+    border-radius: 25px;
+  }
+  .product-slide a img {
     height: auto;
     display: block;
-    margin: 0 auto;
+    width: 288px;
+    margin: 20px;
+    object-fit: contain;
   }
   .dot {
     font-size: 100px;
