@@ -19,7 +19,6 @@
           <a href="{{ product.url }}">
             <div>{{ forloop.index }}</div>
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-            
           </a>
         </div>
       {% endfor %}
@@ -156,17 +155,39 @@
     .arrows-container{
       padding-left: 26%;
     }
-        
+    .product-slide a img {
+      margin: 10px;
+      width: 270px;
+    }
+    .product-slide a div {
+    top: 20px;
+    left: 20px;
+    }
     }
    @media(max-width:498px){
         .left-container .title, .left-container .subtitle, .dots-container {
       padding-left: 15%;
     }
+     .left-container{
+       height:368px;
+     }
     .arrows-container{
       padding-left: 9%;
     }
+     .left-container .title{
+      font-size: 40px;
+      margin: 35px 0 15px 0;
+     }
      .left-container .subtitle{
-    width: 350px;
+    width: 320px;
+       font-size: 16px;
+     }
+     .dots-container{
+       height: 37px;
+     }
+     .arrows-container button {
+           width: 44px;
+    height: 44px;
      }
     }
   }
@@ -181,7 +202,6 @@
     sliders.forEach((slider, i) => {
       slider.classList.toggle('active', i === index);
     });
-    
     dots.forEach((dot, i) => {
       dot.classList.toggle('dotactive', i === index);
     });
